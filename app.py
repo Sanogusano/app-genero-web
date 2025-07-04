@@ -19,7 +19,9 @@ diccionario = cargar_diccionario()
 archivo = st.file_uploader("📂 Sube tu archivo CSV", type=["csv"])
 
 if archivo:
-    df = pd.read_csv(archivo)
+   df = pd.read_csv(archivo, encoding="utf-8", errors="replace")
+
+
 
     if "Email" not in df.columns:
         st.error("El archivo debe tener una columna llamada 'Email'")
