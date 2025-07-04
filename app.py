@@ -10,9 +10,10 @@ st.markdown("Sube un archivo .CSV con una columna llamada **Nombre**. El sistema
 
 @st.cache_data
 def cargar_diccionario():
-    df = pd.read_csv("forenames.csv")
+    file_id = "1lRgjBBj9GN-Et3y0aOPBULGl3wBuqAfw"
+    url = f"https://drive.google.com/uc?id={file_id}"
+    df = pd.read_csv(url)
     df = df.drop_duplicates(subset="forename")
-    df["forename"] = df["forename"].str.lower().str.strip()
     return df[["forename", "gender"]]
 
 diccionario = cargar_diccionario()
