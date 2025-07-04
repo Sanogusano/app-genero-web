@@ -20,7 +20,8 @@ archivo = st.file_uploader("📂 Sube tu archivo CSV", type=["csv"])
 
 if archivo:
     try:
-        df = pd.read_csv(archivo, encoding="utf-8", on_bad_lines="skip")
+        df = pd.read_csv(archivo, encoding="utf-8", sep=";", on_bad_lines="skip")
+
 
         # Normalizar encabezados
         df.columns = df.columns.str.strip().str.lower()
